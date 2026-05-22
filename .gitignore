@@ -1,0 +1,31 @@
+# Node
+node_modules/
+npm-debug.log*
+.npm
+.env
+.env.local
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Captures (can be very large)
+captures/
+*.pcap
+*.pcapng
+*.log
+
+# Build artifacts
+dist/
+build/
+*.img
+*.iso
+
+# Secrets
+*.key
+*.pem
+config.local.*
