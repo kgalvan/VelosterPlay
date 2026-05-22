@@ -34,6 +34,22 @@ Built on top of [node-CarPlay](https://github.com/rhysmorgan134/node-CarPlay).
 - **Phase 3:** Custom modifications to the head unit software for navigation and UI improvements.
 - **Phase 4:** CarPlay Ultra reverse engineering and integration when the protocol becomes more observable.
 
+## Current status
+
+- USB gadget mode working: Pi presents as USB Ethernet device (ECM)
+- Tested on macOS — host sees the Pi as `en*` interface, SSH over USB confirmed
+- Pi side: `10.55.0.1/24` on `usb0`
+- Mac side: configure with `sudo ifconfig <iface> 10.55.0.2 netmask 255.255.255.0 up`
+- Gadget comes up automatically on boot via systemd
+
+## Setup steps so far
+
+1. Raspberry Pi OS Lite 64-bit, headless first boot
+2. Added `dtoverlay=dwc2` to `/boot/firmware/config.txt`
+3. Added `dwc2` and `libcomposite` to `/etc/modules`
+4. `pi-setup/gadget-ethernet.sh` configures the gadget via configfs
+5. systemd unit at `pi-setup/systemd/velosterplay-gadget.service` runs the script on boot
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
