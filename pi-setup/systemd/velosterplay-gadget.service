@@ -1,0 +1,13 @@
+[Unit]
+Description=VelosterPlay USB gadget configuration
+After=network-pre.target
+DefaultDependencies=no
+Before=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/pi/VelosterPlay/pi-setup/gadget-ethernet.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
